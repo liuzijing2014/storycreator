@@ -4,9 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
+import java.util.Vector;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -17,7 +17,7 @@ public class CharpterPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JLabel text;
-	private MainWindow parent;
+	//private MainWindow parent;
 	
 	private EditArea mEditArea;
 	
@@ -26,8 +26,8 @@ public class CharpterPanel extends JPanel {
 			Color.GREEN };
 	private int colorIndex = 0;
 	
-	public CharpterPanel(String display, MainWindow parent) {
-		this.parent = parent;
+	public CharpterPanel(String display) {
+		//this.parent = parent;
 		setLayout(new BorderLayout());
 		setSize(new Dimension(120, 80));
 		setBackground(Color.lightGray);
@@ -55,6 +55,10 @@ public class CharpterPanel extends JPanel {
 //        System.out.println(y);
 //        g.drawLine(x, y, 0, 0);
 //    }
+	
+	public Vector<CharpterPanel> getAllConnected(){
+		return mEditArea.getAllConnnected();
+	}
 	
     public class DragListener extends MouseInputAdapter {
         Point location;

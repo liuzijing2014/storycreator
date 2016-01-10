@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
+<<<<<<< HEAD
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Point;
@@ -12,6 +13,15 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
+=======
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+>>>>>>> branch 'master' of https://github.com/liuzijing2014/storycreator
 
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
@@ -109,7 +119,35 @@ public class EditArea extends JFrame{
 		add(centerPanel);
 	}
 	
+<<<<<<< HEAD
 	private void addFunctionality() {
+=======
+	public void showConnectionDialog() {
+		JDialog mainPanel = new JDialog();
+		mainPanel.setTitle("Ceate New Connection");
+		mainPanel.setModal(true);
+		mainPanel.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+
+		JPanel inputPanel = new JPanel();
+		JLabel promptLabel = new JLabel("Connect to");
+		Border emptyBorder = BorderFactory.createEmptyBorder(0, 10, 0, 0);
+		promptLabel.setBorder(emptyBorder);
+		inputPanel.setLayout(new GridBagLayout());
+
+		GridBagConstraints d = new GridBagConstraints();
+		d.fill = GridBagConstraints.HORIZONTAL;
+		d.gridx = 0;
+		d.gridy = 0;
+		d.ipadx = 30;
+		d.ipady = 10;
+		inputPanel.add(promptLabel, d);
+		List<CharpterPanel> list = new ArrayList<CharpterPanel>();
+		for (CharpterPanel cp : MainWindow.getAllCharpters()) {
+			list.add(cp);
+		}
+		CharpterPanel[] charpterList = list.toArray(new CharpterPanel[list.size()]);
+		JComboBox<CharpterPanel> charpterBox = new JComboBox<CharpterPanel>(charpterList);
+>>>>>>> branch 'master' of https://github.com/liuzijing2014/storycreator
 		
 	}
 	
