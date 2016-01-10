@@ -1,6 +1,7 @@
 package mainarea;
 
 import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -59,6 +60,7 @@ public class MainWindow extends JFrame{
 		
 		workingArea = new CustomPanel();
 		workingArea.setLayout(null);
+		workingArea.setBackground(new Color(244, 255, 240));
 		add(workingArea);
 	}
 	

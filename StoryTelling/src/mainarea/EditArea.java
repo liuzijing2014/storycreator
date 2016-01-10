@@ -60,6 +60,7 @@ public class EditArea extends JFrame{
 	private void initialization() {
 		nameLabel = new JLabel("Chapter Name: ");
 		nameField = new JTextField(chapName.getText());
+		nameField.setBackground(new Color(240, 251, 255));
 		nameField.addCaretListener(new CaretListener(){
 
 			@Override
@@ -74,19 +75,20 @@ public class EditArea extends JFrame{
 		});
 		nameField.setBackground(Color.lightGray);
 		JPanel topPanel = new JPanel(new BorderLayout());
-		//topPanel.setBackground(new Color(35, 152, 208));
+		topPanel.setBackground(new Color(255, 247, 240));
 		topPanel.setBorder(new EmptyBorder(0,5,0,0));
 		topPanel.add(nameLabel, BorderLayout.WEST);
 		topPanel.add(nameField, BorderLayout.CENTER);
 		
 		//JPanel centerPanel = new JPanel(new GridLayout(2,1));
 		
-		edit = new JTextArea();
+		edit = new JTextArea("Type in the Contents...");
 		edit.setLineWrap(true);
-		edit.setBackground(Color.lightGray);
+		edit.setBackground(new Color(255, 255, 240));
 		JScrollPane scrollPane = new JScrollPane(edit);
 		JPanel bottomPanel = new JPanel(new BorderLayout());
 		bottomPanel.setPreferredSize(new Dimension(720, 120));
+		bottomPanel.setBackground(new Color(255, 247, 240));
 		
 		addSmth = new JButton("+");
 		addSmth.addActionListener(new ActionListener(){
