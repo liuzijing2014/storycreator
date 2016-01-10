@@ -8,14 +8,15 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import library.ImageLibrary;
 import mainarea.EditArea.ConnectInfor;
 
 public class Page extends JPanel {
@@ -39,7 +40,12 @@ public class Page extends JPanel {
 			private static final long serialVersionUID = 1L;
 
 			protected void paintComponent(Graphics g) {
-	            g.drawImage(library.ImageLibrary.getImage("resources/Book.png"), 0, 0, getWidth(), getHeight(), null);
+	            try {
+					g.drawImage(ImageIO.read(Page.class.getResource("/resources/Book.png")), 0, 0, getWidth(), getHeight(), null);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 	            super.paintComponent(g);
 	        }
 		};
@@ -51,7 +57,12 @@ public class Page extends JPanel {
 
 			private static final long serialVersionUID = 1L; 
 	        protected void paintComponent(Graphics g) {
-	            g.drawImage(library.ImageLibrary.getImage("resources/Book.png"), 0, 0, getWidth(), getHeight(), null);
+				try {
+					g.drawImage(ImageIO.read(Page.class.getResource("/resources/Book.png")), 0, 0, getWidth(), getHeight(), null);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 	            super.paintComponent(g);
 	        }
 		};
@@ -70,7 +81,12 @@ public class Page extends JPanel {
 			@Override
 			protected void paintComponent(Graphics g) {
 			    super.paintComponent(g); // paint the background image and scale it to fill the entire space
-			    g.drawImage(ImageLibrary.getImage("resources/Book.png"),0,0,getWidth(),getHeight(),null);
+				try {
+					g.drawImage(ImageIO.read(Page.class.getResource("/resources/Book.png")), 0, 0, getWidth(), getHeight(), null);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		};
 		bottomPanel.setPreferredSize(new Dimension(640, 60));

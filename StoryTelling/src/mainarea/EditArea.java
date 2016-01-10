@@ -192,8 +192,8 @@ public class EditArea extends JFrame{
 		bottomPanel.setBackground(Color.WHITE);
 		mainPanel.add(bottomPanel);
 		mainPanel.setBackground(Color.WHITE);
-		mainPanel.setMinimumSize(new Dimension(380, 200));
-		mainPanel.setMaximumSize(new Dimension(380, 200));
+		mainPanel.setMinimumSize(new Dimension(420, 200));
+		mainPanel.setMaximumSize(new Dimension(420, 200));
 		
 		mainPanel.setLocationRelativeTo(null);
 		mainPanel.setVisible(true);
