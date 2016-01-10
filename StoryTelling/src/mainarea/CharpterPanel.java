@@ -60,6 +60,10 @@ public class CharpterPanel extends JPanel {
 		return mEditArea.getAllConnnected();
 	}
 	
+	public String toString(){
+		return text.getText();
+	}
+	
     public class DragListener extends MouseInputAdapter {
         Point location;
         MouseEvent pressed;
