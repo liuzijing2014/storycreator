@@ -12,9 +12,11 @@ public class Book extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 	private JPanel container;
+	private String mfont;
 	
-	Book(CharpterPanel mCharpterPanel){
+	Book(CharpterPanel mCharpterPanel, String font){
 		super("Reading!");
+		mfont = font;
 		createGUI(mCharpterPanel);
 		setSize(new Dimension(720, 640));
 		setResizable(false);
@@ -35,10 +37,10 @@ public class Book extends JFrame{
 		outterPanel.setBackground(Color.DARK_GRAY);
 		add(outterPanel);
 		
-		container.add(new Page(mCharpterPanel, this));
+		container.add(new Page(mCharpterPanel, this, mfont));
 	}
 	
 	public void addPage(CharpterPanel nextCharpterPanel){
-		container.add(new Page(nextCharpterPanel, this));
+		container.add(new Page(nextCharpterPanel, this, mfont));
 	}
 }

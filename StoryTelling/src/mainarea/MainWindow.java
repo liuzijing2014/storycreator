@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.GraphicsEnvironment;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,9 +24,9 @@ public class MainWindow extends JFrame{
 	
 	private JMenuItem charpter;
 	private JMenuItem read;
+	private JMenuItem font;
 	private static CustomPanel workingArea;
-	
-
+	private String selectedFont = "Arial";
 	
 	static private Vector<CharpterPanel> allCharpters;
 	
@@ -52,8 +53,10 @@ public class MainWindow extends JFrame{
 		charpter = new JMenuItem("Chapter");
 		JMenu edit = new JMenu("Edit");
 		read = new JMenuItem("Read");
+		font = new JMenuItem("Font");
 		add.add(charpter);
 		edit.add(read);
+		edit.add(font);
 		jmb.add(add);
 		jmb.add(edit);
 		setJMenuBar(jmb);
@@ -90,7 +93,27 @@ public class MainWindow extends JFrame{
 			            null, 
 			            charpters, 
 			            charpters[0]);
-			    new Book((CharpterPanel)beginningCharpter);
+			    if(beginningCharpter != null){
+			    	new Book((CharpterPanel)beginningCharpter, selectedFont);
+			    }
+			}
+		});
+		font.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+		        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		        String[] fontFamilyNames = ge.getAvailableFontFamilyNames();
+			    String selectedFont = (String)JOptionPane.showInputDialog(null, 
+			            "Which Font?",
+			            "Font",
+			            JOptionPane.PLAIN_MESSAGE, 
+			            null, 
+			            fontFamilyNames, 
+			            fontFamilyNames[0]);
+			    if(selectedFont != null && selectedFont != ""){
+			    	MainWindow.this.selectedFont = selectedFont;
+			    }
 			}
 		});
 	}
