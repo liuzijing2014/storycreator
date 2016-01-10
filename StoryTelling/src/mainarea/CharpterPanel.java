@@ -109,6 +109,7 @@ public class CharpterPanel extends JPanel {
             int x = location.x - pressed.getX() + me.getX();
             int y = location.y - pressed.getY() + me.getY();
             component.setLocation(x, y);
+            MainWindow.refresh();
             
         }
     }
