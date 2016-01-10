@@ -55,19 +55,6 @@ public class CharpterPanel extends JPanel {
 		mEditArea = new EditArea(display);
 	}
 	
-   // @Override
-//    protected void paintComponent(Graphics g) {
-//        super.paintComponent(g);
-////        if(mEditArea.isConnected == true){
-////        }
-//        Point p = this.getLocationOnScreen();
-//        
-//        int x = (int) p.getX();
-//        int y = (int) p.getY();
-//        System.out.println(x);
-//        System.out.println(y);
-//        g.drawLine(x, y, 0, 0);
-//    }
 	
 	public Vector<CharpterPanel> getAllConnected(){
 		return mEditArea.getAllConnnected();
