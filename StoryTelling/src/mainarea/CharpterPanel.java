@@ -4,32 +4,50 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
-import javax.swing.border.TitledBorder;
 import javax.swing.event.MouseInputAdapter;
 
 public class CharpterPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JLabel text;
-	private boolean click = false;
+	private MainWindow parent;
 	
-	public CharpterPanel(String display) {
+	private EditArea mEditArea;
+	
+	private final Color[] colorList = { Color.BLACK, Color.BLUE, Color.CYAN, Color.DARK_GRAY, Color.GRAY,
+			Color.LIGHT_GRAY, Color.MAGENTA, Color.ORANGE, Color.PINK, Color.RED, Color.WHITE, Color.YELLOW,
+			Color.GREEN };
+	private int colorIndex = 0;
+	
+	public CharpterPanel(String display, MainWindow parent) {
+		this.parent = parent;
 		setLayout(new BorderLayout());
 		setSize(new Dimension(120, 80));
+		setBackground(Color.lightGray);
 		DragListener drag = new DragListener();
 		addMouseListener(drag);
 		addMouseMotionListener(drag);
-		setBorder(new TitledBorder("Charpter"));
+		setBorder(new LineBorder(colorList[colorIndex], 2));
 		text = new JLabel(display); 
 		add(text);
 		setBounds(10, 10, 90, 60);
+		
+		//mEditArea = new EditArea();
 	}
+	
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+//        if(mEditArea.isConnected == true){
+//        }
+    }
 	
     public class DragListener extends MouseInputAdapter {
         Point location;
@@ -40,7 +58,13 @@ public class CharpterPanel extends JPanel {
         }
         
         public void mouseClicked(MouseEvent me){
-
+        	if(me.getClickCount() == 2){
+        		
+        	}
+        	else if(me.getClickCount() == 1){
+        		colorIndex = (colorIndex + 1) % 13;
+        		setBorder(new LineBorder(colorList[colorIndex], 2));
+        	}
         }
 
         public void mouseDragged(MouseEvent me) {
