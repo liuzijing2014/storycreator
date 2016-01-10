@@ -94,12 +94,12 @@ public class MainWindow extends JFrame{
 		        for (CharpterPanel chap : allCharpters) {
 		        	if(chap != null && !chap.getAllConnected().isEmpty()) {
 			        	p = chap.getLocation();
-			        	int x1 = (int) p.getX() + 90;
+			        	int x1 = (int) p.getX() + 60;
 				        int y1 = (int) p.getY();
 				        for(CharpterPanel otherChap : chap.getAllConnected()) {
 					        p = otherChap.getLocation();
 				        	int x2 = ((int) p.getX()) + 0;
-					        int y2 = ((int) p.getY()) + 58;
+					        int y2 = ((int) p.getY()) + 40;
 					        drawArrowLine(g, x1, y1, x2, y2, 6, 6);
 				        }
 				        repaint();
