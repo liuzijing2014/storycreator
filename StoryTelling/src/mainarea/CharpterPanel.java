@@ -14,6 +14,8 @@ import javax.swing.SwingUtilities;
 import javax.swing.border.LineBorder;
 import javax.swing.event.MouseInputAdapter;
 
+import mainarea.EditArea.ConnectInfor;
+
 public class CharpterPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
@@ -61,8 +63,16 @@ public class CharpterPanel extends JPanel {
 		return mEditArea.getAllConnnected();
 	}
 	
+	public Vector<ConnectInfor> getAllConnectInfor(){
+		return mEditArea.getAllConnectInfor();
+	}
+	
 	public String toString(){
 		return text.getText();
+	}
+	
+	public String getContent(){
+		return mEditArea.getContent();
 	}
 	
     public class DragListener extends MouseInputAdapter {
