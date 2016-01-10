@@ -3,8 +3,6 @@ package mainarea;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -30,17 +28,7 @@ public class Page extends JPanel {
 	}
 
 	private void createGUI() {
-		// TODO Auto-generated method stub
 		JTextArea text = new JTextArea(mCharpterPanel.getContent()); 
-//
-//			private static final long serialVersionUID = 1L;
-//			protected void paintComponent(Graphics g) {
-//		        Image mImage = ImageLibrary.getImage("resources/Book.png"); 
-//		        g.drawImage(mImage, 0, 0, getWidth(), getHeight(), null);
-//		        super.paintComponent(g);
-//			}        
-//			
-//		};
 		text.setLineWrap(true);
 		text.setEditable(false);
 		JScrollPane scrollPane = new JScrollPane(text);
