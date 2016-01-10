@@ -18,7 +18,7 @@ public class Book extends JFrame{
 		createGUI(mCharpterPanel);
 		setSize(new Dimension(720, 640));
 		setResizable(false);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}

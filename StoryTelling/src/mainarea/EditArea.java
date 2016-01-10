@@ -26,6 +26,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.CaretEvent;
+import javax.swing.event.CaretListener;
 import javax.swing.table.DefaultTableModel;
 
 //import library.ImageLibrary;
@@ -38,51 +40,38 @@ public class EditArea extends JFrame{
 	private JTextArea edit;
 	private Cursor cursor;
 	private JLabel nameLabel;
-	private String chapName;
+	private JLabel chapName;
 	private JButton addSmth;
 	
 	private DefaultTableModel tableModel;
 	private Vector<ConnectInfor> allConnected;
 	
-	public EditArea(String chapname) {
+	public EditArea(JLabel label) {
 		this.setMaximumSize(new Dimension(720,480));
 		this.setMinimumSize(new Dimension(720,480));
-		chapName = chapname;
+		chapName = label;
 		allConnected = new Vector<ConnectInfor>();
-//		Toolkit toolkit = Toolkit.getDefaultToolkit();
-//    	Image cursorImg;
-//		try {
-//			cursorImg = ImageIO.read(new File("/Users/hejie/Desktop/cursor2.png"));
-//			cursor = toolkit.createCustomCursor(cursorImg,new Point(0,0),"hand");
-//			setCursor(cursor);
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
 		setLayout(new BorderLayout());
 		initialization();
 		edit.setCursor(cursor);
 		setLocationRelativeTo(null);
-		//setUndecorated(true);
-    	//setVisible(true);
 	}
 	
 	private void initialization() {
 		nameLabel = new JLabel("Chapter Name: ");
-		//nameLabel.setBackground(new Color(35, 152, 208));
-		//nameLabel.setBorder(border);
-		nameField = new JTextField(chapName);
-//		nameField.addKeyListener(new KeyAdapter() {
-//			 public void keyPressed(KeyEvent ke) {  // handler
-//			    if(ke.getKeyCode() == ke.VK_ESCAPE) {
-//			    	System.out.println("escaped ?");
-//			      	setVisible(false);
-//			    } 
-//			    else {
-//			    	System.out.println("not escaped");
-//			    }
-//			 } 
-//		});
+		nameField = new JTextField(chapName.getText());
+		nameField.addCaretListener(new CaretListener(){
+
+			@Override
+			public void caretUpdate(CaretEvent e) {
+				// TODO Auto-generated method stub
+				String temp = nameField.getText();
+				if(temp != null && temp != ""){
+					chapName.setText(temp);
+				}
+			}
+			
+		});
 		nameField.setBackground(Color.lightGray);
 		JPanel topPanel = new JPanel(new BorderLayout());
 		//topPanel.setBackground(new Color(35, 152, 208));

@@ -42,9 +42,9 @@ public class Page extends JPanel {
 
 			private static final long serialVersionUID = 1L;
 			protected void paintComponent(Graphics g) {
-		        super.paintComponent(g);
 		        Image mImage = ImageLibrary.getImage("resources/Book.png"); 
 		        g.drawImage(mImage, 0, 0, getWidth(), getHeight(), null);
+		        super.paintComponent(g);
 			}        
 			
 		};
@@ -65,6 +65,7 @@ public class Page extends JPanel {
 					mBook.addPage(ci.next);
 				}	
 			});
+			bottomPanel.add(button);
 		}
 		add(bottomPanel, BorderLayout.SOUTH);
 	}

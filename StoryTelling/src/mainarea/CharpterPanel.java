@@ -52,7 +52,7 @@ public class CharpterPanel extends JPanel {
 		add(text);
 		setBounds(10, 10, 120, 80);
 		
-		mEditArea = new EditArea(display);
+		mEditArea = new EditArea(text);
 	}
 	
 	

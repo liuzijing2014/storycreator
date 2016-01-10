@@ -49,8 +49,12 @@ public class MainWindow extends JFrame{
 		JMenuBar jmb = new JMenuBar(); 
 		JMenu add = new JMenu("New");
 		charpter = new JMenuItem("Chapter");
+		JMenu edit = new JMenu("Edit");
+		read = new JMenuItem("Read");
 		add.add(charpter);
+		edit.add(read);
 		jmb.add(add);
+		jmb.add(edit);
 		setJMenuBar(jmb);
 		
 		workingArea = new CustomPanel();
@@ -70,6 +74,22 @@ public class MainWindow extends JFrame{
 				workingArea.revalidate();
 				workingArea.repaint();
 			}		
+		});
+		
+		read.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				Object[] charpters = allCharpters.toArray(); 
+			    CharpterPanel beginningCharpter = (CharpterPanel) JOptionPane.showInputDialog(null, 
+			            "Which chapter would you want to start with?",
+			            "Read",
+			            JOptionPane.PLAIN_MESSAGE, 
+			            null, 
+			            charpters, 
+			            charpters[0]);
+			    new Book((CharpterPanel)beginningCharpter);
+			}
 		});
 	}
 	
@@ -94,8 +114,8 @@ public class MainWindow extends JFrame{
 		        for (CharpterPanel chap : allCharpters) {
 		        	if(chap != null && !chap.getAllConnected().isEmpty()) {
 			        	p = chap.getLocation();
-			        	int x1 = (int) p.getX() + 60;
-				        int y1 = (int) p.getY();
+			        	int x1 = (int) p.getX() + 120;
+				        int y1 = (int) p.getY() + 40;
 				        for(CharpterPanel otherChap : chap.getAllConnected()) {
 					        p = otherChap.getLocation();
 				        	int x2 = ((int) p.getX()) + 0;
