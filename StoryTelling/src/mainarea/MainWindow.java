@@ -2,6 +2,7 @@ package mainarea;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Point;
@@ -37,7 +38,10 @@ public class MainWindow extends JFrame{
 	
 	private JMenuItem charpter;
 	private JMenuItem read;
-	private JPanel workingArea;
+	private CustomPanel workingArea;
+	
+	CharpterPanel piece;
+	CharpterPanel piece1;
 	
 	static private Vector<CharpterPanel> allCharpters;
 	
@@ -66,7 +70,7 @@ public class MainWindow extends JFrame{
 		jmb.add(add);
 		setJMenuBar(jmb);
 		
-		workingArea = new JPanel();
+		workingArea = new CustomPanel();
 		workingArea.setLayout(null);
 		add(workingArea);
 	}
@@ -75,13 +79,18 @@ public class MainWindow extends JFrame{
 		charpter.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				String name = JOptionPane.showInputDialog(null,"Please enter charpter name","Charpter ",JOptionPane.PLAIN_MESSAGE);
-//				if(name == null) return;
-//				CharpterPanel piece = new CharpterPanel(name, MainWindow.this);
-//				allCharpters.add(piece);
-//				workingArea.add(piece);
-//				workingArea.revalidate();
-//				workingArea.repaint();
+				String name = JOptionPane.showInputDialog(null,"Please enter charpter name","Charpter ",JOptionPane.PLAIN_MESSAGE);
+				if(name == null) return;
+				piece = new CharpterPanel(name, MainWindow.this);
+				allCharpters.add(piece);
+				workingArea.add(piece);
+				workingArea.revalidate();
+				workingArea.repaint();
+				piece1 = new CharpterPanel(name, MainWindow.this);
+				allCharpters.add(piece1);
+				workingArea.add(piece1);
+				workingArea.revalidate();
+				workingArea.repaint();
 				showConnectionDialog();
 			}		
 		});
@@ -166,6 +175,28 @@ public class MainWindow extends JFrame{
 	
 	public static void main(String [] args){
 		new MainWindow();
+	}
+	
+	class CustomPanel extends JPanel {
+		
+		 protected void paintComponent(Graphics g) {
+		        super.paintComponent(g);
+	//	        if(mEditArea.isConnected == true){
+	//	        }
+		        Point p = null;
+		        if(piece != null && piece1 != null) {
+		        	p = piece.getLocation();
+		        	int x1 = (int) p.getX();
+			        int y1 = (int) p.getY();
+			        p = piece1.getLocation();
+		        	int x2 = ((int) p.getX()) + 90;
+			        int y2 = ((int) p.getY()) + 60;
+			        g.drawLine(x1,y1, x2, y2);
+			        repaint();
+			    }
+		        
+		        
+		 }
 	}
 
 }
