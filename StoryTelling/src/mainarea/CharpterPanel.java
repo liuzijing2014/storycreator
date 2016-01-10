@@ -39,7 +39,7 @@ public class CharpterPanel extends JPanel {
 		add(text);
 		setBounds(10, 10, 90, 60);
 		
-		mEditArea = new EditArea();
+		mEditArea = new EditArea(display);
 	}
 	
    // @Override
@@ -70,7 +70,7 @@ public class CharpterPanel extends JPanel {
         
         public void mouseClicked(MouseEvent me){
         	if(me.getClickCount() == 2){
-        		
+        		mEditArea.setVisible(true);
         	}
         	else if(me.getClickCount() == 1){
         		colorIndex = (colorIndex + 1) % 13;

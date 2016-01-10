@@ -64,7 +64,7 @@ public class EditArea extends JFrame{
 		edit.setCursor(cursor);
 		setLocationRelativeTo(null);
 		//setUndecorated(true);
-    	setVisible(true);
+    	//setVisible(true);
 	}
 	
 	private void initialization() {
@@ -215,10 +215,10 @@ public class EditArea extends JFrame{
 		return results;
 	}
 	
-	public static void main(String [] args) {
-		new EditArea("LiuZijing shi sabi");
-		
-	}
+//	public static void main(String [] args) {
+//		new EditArea("LiuZijing shi sabi");
+//		
+//	}
 	
 	class ConnectInfor{
 		public CharpterPanel next = null;
