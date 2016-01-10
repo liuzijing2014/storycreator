@@ -216,10 +216,13 @@ public class EditArea extends JFrame{
 		return results;
 	}
 	
-//	public static void main(String [] args) {
-//		new EditArea("LiuZijing shi sabi");
-//		
-//	}
+	public Vector<ConnectInfor> getAllConnectInfor(){
+		return allConnected;
+	}
+	
+	public String getContent(){
+		return edit.getText();
+	}
 	
 	class ConnectInfor{
 		public CharpterPanel next = null;

@@ -173,8 +173,8 @@ public class MainWindow extends JFrame{
 		        for (CharpterPanel chap : allCharpters) {
 		        	if(chap != null && !chap.getAllConnected().isEmpty()) {
 			        	p = chap.getLocation();
-			        	int x1 = (int) p.getX() + 1;
-				        int y1 = (int) p.getY() + 1;
+			        	int x1 = (int) p.getX() + 90;
+				        int y1 = (int) p.getY();
 				        for(CharpterPanel otherChap : chap.getAllConnected()) {
 					        p = otherChap.getLocation();
 				        	int x2 = ((int) p.getX()) + 0;
@@ -183,10 +183,12 @@ public class MainWindow extends JFrame{
 				        }
 				        repaint();
 				    }
+
 		        }
 		        
 		       
-		        
+		        }        
+
 		 }
 		
 		 private void drawArrowLine(Graphics g, int x1, int y1, int x2, int y2, int d, int h){
@@ -210,7 +212,6 @@ public class MainWindow extends JFrame{
 		        g.drawLine(x1, y1, x2, y2);
 		        g.fillPolygon(xpoints, ypoints, 3);
 		     }
-	}
 
 
 	public static void refresh() {

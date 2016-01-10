@@ -10,8 +10,11 @@ import java.util.Vector;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.border.LineBorder;
 import javax.swing.event.MouseInputAdapter;
+
+import mainarea.EditArea.ConnectInfor;
 
 public class CharpterPanel extends JPanel {
 
@@ -60,8 +63,16 @@ public class CharpterPanel extends JPanel {
 		return mEditArea.getAllConnnected();
 	}
 	
+	public Vector<ConnectInfor> getAllConnectInfor(){
+		return mEditArea.getAllConnectInfor();
+	}
+	
 	public String toString(){
 		return text.getText();
+	}
+	
+	public String getContent(){
+		return mEditArea.getContent();
 	}
 	
     public class DragListener extends MouseInputAdapter {
@@ -76,7 +87,7 @@ public class CharpterPanel extends JPanel {
         	if(me.getClickCount() == 2){
         		mEditArea.setVisible(true);
         	}
-        	else if(me.getClickCount() == 1){
+        	else if(SwingUtilities.isRightMouseButton(me)){
         		colorIndex = (colorIndex + 1) % 13;
         		setBorder(new LineBorder(colorList[colorIndex], 2));
         	}
