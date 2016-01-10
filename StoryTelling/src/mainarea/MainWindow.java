@@ -20,10 +20,9 @@ public class MainWindow extends JFrame{
 	
 	private JMenuItem charpter;
 	private JMenuItem read;
-	private CustomPanel workingArea;
+	private static CustomPanel workingArea;
 	
-	CharpterPanel piece;
-	CharpterPanel piece1;
+
 	
 	static private Vector<CharpterPanel> allCharpters;
 	
@@ -63,7 +62,7 @@ public class MainWindow extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				String name = JOptionPane.showInputDialog(null,"Please enter chapter name","Chapter ",JOptionPane.PLAIN_MESSAGE);
 				if(name == null) return;
-				piece = new CharpterPanel(name);
+				CharpterPanel piece = new CharpterPanel(name);
 				allCharpters.add(piece);
 				workingArea.add(piece);
 				workingArea.revalidate();
@@ -159,6 +158,7 @@ public class MainWindow extends JFrame{
 		new MainWindow();
 	}
 	
+	
 	class CustomPanel extends JPanel {
 		
 		private static final long serialVersionUID = 1L;
@@ -168,19 +168,30 @@ public class MainWindow extends JFrame{
 	//	        if(mEditArea.isConnected == true){
 	//	        }
 		        Point p = null;
-		        if(piece != null && piece1 != null) {
-		        	p = piece.getLocation();
-		        	int x1 = (int) p.getX();
-			        int y1 = (int) p.getY();
-			        p = piece1.getLocation();
-		        	int x2 = ((int) p.getX()) + 0;
-			        int y2 = ((int) p.getY()) + 60;
-			        g.drawLine(x1,y1, x2, y2);
-			        repaint();
-			    }
+		        for (CharpterPanel chap : allCharpters) {
+		        	if(chap != null && !chap.getAllConnected().isEmpty()) {
+			        	p = chap.getLocation();
+			        	int x1 = (int) p.getX();
+				        int y1 = (int) p.getY();
+				        for(CharpterPanel otherChap : chap.getAllConnected()) {
+					        p = otherChap.getLocation();
+				        	int x2 = ((int) p.getX()) + 0;
+					        int y2 = ((int) p.getY()) + 60;
+					        g.drawLine(x1,y1, x2, y2);
+				        }
+				        repaint();
+				    }
+		        }
+		        
 		        
 		        
 		 }
+	}
+
+
+	public static void refresh() {
+		// TODO Auto-generated method stub
+		workingArea.repaint();
 	}
 
 }

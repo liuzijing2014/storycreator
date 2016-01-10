@@ -187,6 +187,7 @@ public class EditArea extends JFrame{
 				tableModel.addRow(
 						new Object[] { tempInfor.next, tempInfor.description });
 				mainPanel.dispose();
+				MainWindow.refresh();
 			}
 		});
 		emptyBorder = BorderFactory.createEmptyBorder(0, 0, 10, 0);
