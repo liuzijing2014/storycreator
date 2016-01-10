@@ -13,7 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import library.ImageLibrary;
 import mainarea.EditArea.ConnectInfor;
 
 public class Page extends JPanel {
@@ -26,28 +25,22 @@ public class Page extends JPanel {
 		super();
 		this.mCharpterPanel = mcCharpterPanel;
 		this.mBook = mBook;
-		initialize();
 		createGUI();
 		setPreferredSize(new Dimension(640, 640));
-	}
-	
-	private void initialize() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	private void createGUI() {
 		// TODO Auto-generated method stub
-		JTextArea text = new JTextArea(mCharpterPanel.getContent()) {
-
-			private static final long serialVersionUID = 1L;
-			protected void paintComponent(Graphics g) {
-		        Image mImage = ImageLibrary.getImage("resources/Book.png"); 
-		        g.drawImage(mImage, 0, 0, getWidth(), getHeight(), null);
-		        super.paintComponent(g);
-			}        
-			
-		};
+		JTextArea text = new JTextArea(mCharpterPanel.getContent()); 
+//
+//			private static final long serialVersionUID = 1L;
+//			protected void paintComponent(Graphics g) {
+//		        Image mImage = ImageLibrary.getImage("resources/Book.png"); 
+//		        g.drawImage(mImage, 0, 0, getWidth(), getHeight(), null);
+//		        super.paintComponent(g);
+//			}        
+//			
+//		};
 		text.setLineWrap(true);
 		text.setEditable(false);
 		JScrollPane scrollPane = new JScrollPane(text);
@@ -63,6 +56,9 @@ public class Page extends JPanel {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					mBook.addPage(ci.next);
+					mBook.revalidate();
+					mBook.repaint();
+					button.setEnabled(false);
 				}	
 			});
 			bottomPanel.add(button);

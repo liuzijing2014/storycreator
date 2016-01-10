@@ -41,9 +41,4 @@ public class Book extends JFrame{
 	public void addPage(CharpterPanel nextCharpterPanel){
 		container.add(new Page(nextCharpterPanel, this));
 	}
-	
-	public static void main(String [] args){
-		new Book(new CharpterPanel("dsadas"));
-	}
-
 }
