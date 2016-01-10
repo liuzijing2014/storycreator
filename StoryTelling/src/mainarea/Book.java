@@ -3,7 +3,6 @@ package mainarea;
 import java.awt.Color;
 import java.awt.Dimension;
 
-import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -24,7 +23,6 @@ public class Book extends JFrame{
 
 	private void initialize() {
 		// TODO Auto-generated method stub
-		
 	}
 	
 	private void createGUI() {

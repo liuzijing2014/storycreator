@@ -10,6 +10,7 @@ import java.util.Vector;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.border.LineBorder;
 import javax.swing.event.MouseInputAdapter;
 
@@ -76,7 +77,7 @@ public class CharpterPanel extends JPanel {
         	if(me.getClickCount() == 2){
         		mEditArea.setVisible(true);
         	}
-        	else if(me.getClickCount() == 1){
+        	else if(SwingUtilities.isRightMouseButton(me)){
         		colorIndex = (colorIndex + 1) % 13;
         		setBorder(new LineBorder(colorList[colorIndex], 2));
         	}

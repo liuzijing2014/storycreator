@@ -171,7 +171,7 @@ public class MainWindow extends JFrame{
 		        for (CharpterPanel chap : allCharpters) {
 		        	if(chap != null && !chap.getAllConnected().isEmpty()) {
 			        	p = chap.getLocation();
-			        	int x1 = (int) p.getX();
+			        	int x1 = (int) p.getX() + 90;
 				        int y1 = (int) p.getY();
 				        for(CharpterPanel otherChap : chap.getAllConnected()) {
 					        p = otherChap.getLocation();
@@ -181,10 +181,7 @@ public class MainWindow extends JFrame{
 				        }
 				        repaint();
 				    }
-		        }
-		        
-		        
-		        
+		        }        
 		 }
 	}
 
