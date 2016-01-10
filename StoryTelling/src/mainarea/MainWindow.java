@@ -81,12 +81,12 @@ public class MainWindow extends JFrame{
 				workingArea.add(piece);
 				workingArea.revalidate();
 				workingArea.repaint();
-				piece1 = new CharpterPanel(name);
-				allCharpters.add(piece1);
-				workingArea.add(piece1);
-				workingArea.revalidate();
-				workingArea.repaint();
-				showConnectionDialog();
+//				piece1 = new CharpterPanel(name);
+//				allCharpters.add(piece1);
+//				workingArea.add(piece1);
+//				workingArea.revalidate();
+//				workingArea.repaint();
+				//showConnectionDialog();
 			}		
 		});
 	}
@@ -96,77 +96,77 @@ public class MainWindow extends JFrame{
 	}
 	
 
-	public static void showConnectionDialog() {
-		JDialog mainPanel = new JDialog();
-		mainPanel.setTitle("Ceate New Connection");
-		mainPanel.setModal(true);
-		mainPanel.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-
-		JPanel inputPanel = new JPanel();
-		JLabel promptLabel = new JLabel("Connect to");
-		Border emptyBorder = BorderFactory.createEmptyBorder(0, 10, 0, 0);
-		promptLabel.setBorder(emptyBorder);
-		inputPanel.setLayout(new GridBagLayout());
-
-		GridBagConstraints d = new GridBagConstraints();
-		d.fill = GridBagConstraints.HORIZONTAL;
-		d.gridx = 0;
-		d.gridy = 0;
-		d.ipadx = 30;
-		d.ipady = 10;
-		inputPanel.add(promptLabel, d);
-		List<CharpterPanel> list = new ArrayList<CharpterPanel>();
-		for (CharpterPanel cp : allCharpters) {
-			list.add(cp);
-		}
-		CharpterPanel[] charpterList = list.toArray(new CharpterPanel[list.size()]);
-		JComboBox<CharpterPanel> charpterBox = new JComboBox<CharpterPanel>(charpterList);
-		
-		d.gridx = 1;
-		d.gridy = 0;
-		JLabel jl = new JLabel("other charpters:");
-		inputPanel.add(jl, d);
-		d.gridx = 2;
-		d.gridy = 0;
-		inputPanel.add(charpterBox, d);
-
-		JLabel desLabel = new JLabel("Description: ");
-		emptyBorder = BorderFactory.createEmptyBorder(0, 10, 0, 0);
-		desLabel.setBorder(emptyBorder);
-		JTextField desField = new JTextField(15);
-		d.gridx = 0;
-		d.gridy = 1;
-		inputPanel.add(desLabel, d);
-		d.gridx = 1;
-		d.gridy = 1;
-		d.gridwidth = 4;
-		inputPanel.add(desField, d);
-
-		JPanel bottomPanel = new JPanel();
-		JButton confirmButton = new JButton("Confirm");
-		confirmButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		emptyBorder = BorderFactory.createEmptyBorder(0, 0, 10, 0);
-		bottomPanel.setBorder(emptyBorder);
-		mainPanel.getRootPane().setDefaultButton(confirmButton);
-		bottomPanel.add(confirmButton);
-
-		mainPanel.setLayout(new BoxLayout(mainPanel.getContentPane(), BoxLayout.Y_AXIS));
-		inputPanel.setBackground(Color.WHITE);
-		mainPanel.add(inputPanel);
-		bottomPanel.setBackground(Color.WHITE);
-		mainPanel.add(bottomPanel);
-		mainPanel.setBackground(Color.WHITE);
-		mainPanel.setMinimumSize(new Dimension(380, 200));
-		mainPanel.setMaximumSize(new Dimension(380, 200));
-		
-		mainPanel.setLocationRelativeTo(null);
-		mainPanel.setVisible(true);
-	}
+//	public static void showConnectionDialog() {
+//		JDialog mainPanel = new JDialog();
+//		mainPanel.setTitle("Ceate New Connection");
+//		mainPanel.setModal(true);
+//		mainPanel.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+//
+//		JPanel inputPanel = new JPanel();
+//		JLabel promptLabel = new JLabel("Connect to");
+//		Border emptyBorder = BorderFactory.createEmptyBorder(0, 10, 0, 0);
+//		promptLabel.setBorder(emptyBorder);
+//		inputPanel.setLayout(new GridBagLayout());
+//
+//		GridBagConstraints d = new GridBagConstraints();
+//		d.fill = GridBagConstraints.HORIZONTAL;
+//		d.gridx = 0;
+//		d.gridy = 0;
+//		d.ipadx = 30;
+//		d.ipady = 10;
+//		inputPanel.add(promptLabel, d);
+//		List<CharpterPanel> list = new ArrayList<CharpterPanel>();
+//		for (CharpterPanel cp : allCharpters) {
+//			list.add(cp);
+//		}
+//		CharpterPanel[] charpterList = list.toArray(new CharpterPanel[list.size()]);
+//		JComboBox<CharpterPanel> charpterBox = new JComboBox<CharpterPanel>(charpterList);
+//		
+//		d.gridx = 1;
+//		d.gridy = 0;
+//		JLabel jl = new JLabel("other charpters:");
+//		inputPanel.add(jl, d);
+//		d.gridx = 2;
+//		d.gridy = 0;
+//		inputPanel.add(charpterBox, d);
+//
+//		JLabel desLabel = new JLabel("Description: ");
+//		emptyBorder = BorderFactory.createEmptyBorder(0, 10, 0, 0);
+//		desLabel.setBorder(emptyBorder);
+//		JTextField desField = new JTextField(15);
+//		d.gridx = 0;
+//		d.gridy = 1;
+//		inputPanel.add(desLabel, d);
+//		d.gridx = 1;
+//		d.gridy = 1;
+//		d.gridwidth = 4;
+//		inputPanel.add(desField, d);
+//
+//		JPanel bottomPanel = new JPanel();
+//		JButton confirmButton = new JButton("Confirm");
+//		confirmButton.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				
+//			}
+//		});
+//		emptyBorder = BorderFactory.createEmptyBorder(0, 0, 10, 0);
+//		bottomPanel.setBorder(emptyBorder);
+//		mainPanel.getRootPane().setDefaultButton(confirmButton);
+//		bottomPanel.add(confirmButton);
+//
+//		mainPanel.setLayout(new BoxLayout(mainPanel.getContentPane(), BoxLayout.Y_AXIS));
+//		inputPanel.setBackground(Color.WHITE);
+//		mainPanel.add(inputPanel);
+//		bottomPanel.setBackground(Color.WHITE);
+//		mainPanel.add(bottomPanel);
+//		mainPanel.setBackground(Color.WHITE);
+//		mainPanel.setMinimumSize(new Dimension(380, 200));
+//		mainPanel.setMaximumSize(new Dimension(380, 200));
+//		
+//		mainPanel.setLocationRelativeTo(null);
+//		mainPanel.setVisible(true);
+//	}
 	
 	public static void main(String [] args){
 		new MainWindow();
