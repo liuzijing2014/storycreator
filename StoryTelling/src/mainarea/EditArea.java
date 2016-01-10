@@ -6,11 +6,8 @@ import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -152,9 +149,9 @@ public class EditArea extends JFrame{
 		d.ipady = 10;
 		inputPanel.add(promptLabel, d);
 		List<CharpterPanel> list = new ArrayList<CharpterPanel>();
-//		for (CharpterPanel cp : MainWindow.getAllCharpters()) {
-//			list.add(cp);
-//		}
+		for (CharpterPanel cp : MainWindow.getAllCharpters()) {
+			list.add(cp);
+		}
 		CharpterPanel[] charpterList = list.toArray(new CharpterPanel[list.size()]);
 		JComboBox<CharpterPanel> charpterBox = new JComboBox<CharpterPanel>(charpterList);
 		

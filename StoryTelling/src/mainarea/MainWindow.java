@@ -8,10 +8,6 @@ import java.awt.GridBagLayout;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -29,7 +25,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.UIManager;
 import javax.swing.border.Border;
 
 public class MainWindow extends JFrame{
@@ -65,7 +60,7 @@ public class MainWindow extends JFrame{
 		
 		JMenuBar jmb = new JMenuBar(); 
 		JMenu add = new JMenu("New");
-		charpter = new JMenuItem("Charpter");
+		charpter = new JMenuItem("Chapter");
 		add.add(charpter);
 		jmb.add(add);
 		setJMenuBar(jmb);
@@ -79,14 +74,14 @@ public class MainWindow extends JFrame{
 		charpter.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String name = JOptionPane.showInputDialog(null,"Please enter charpter name","Charpter ",JOptionPane.PLAIN_MESSAGE);
+				String name = JOptionPane.showInputDialog(null,"Please enter chapter name","Chapter ",JOptionPane.PLAIN_MESSAGE);
 				if(name == null) return;
-				piece = new CharpterPanel(name, MainWindow.this);
+				piece = new CharpterPanel(name);
 				allCharpters.add(piece);
 				workingArea.add(piece);
 				workingArea.revalidate();
 				workingArea.repaint();
-				piece1 = new CharpterPanel(name, MainWindow.this);
+				piece1 = new CharpterPanel(name);
 				allCharpters.add(piece1);
 				workingArea.add(piece1);
 				workingArea.revalidate();
@@ -179,7 +174,9 @@ public class MainWindow extends JFrame{
 	
 	class CustomPanel extends JPanel {
 		
-		 protected void paintComponent(Graphics g) {
+		private static final long serialVersionUID = 1L;
+
+		protected void paintComponent(Graphics g) {
 		        super.paintComponent(g);
 	//	        if(mEditArea.isConnected == true){
 	//	        }
