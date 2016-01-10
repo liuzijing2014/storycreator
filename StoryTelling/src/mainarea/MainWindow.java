@@ -189,7 +189,7 @@ public class MainWindow extends JFrame{
 		        	int x1 = (int) p.getX();
 			        int y1 = (int) p.getY();
 			        p = piece1.getLocation();
-		        	int x2 = ((int) p.getX()) + 90;
+		        	int x2 = ((int) p.getX()) + 0;
 			        int y2 = ((int) p.getY()) + 60;
 			        g.drawLine(x1,y1, x2, y2);
 			        repaint();
